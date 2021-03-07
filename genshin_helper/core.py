@@ -1,5 +1,6 @@
 import time
 import uuid
+import json
 
 from .utils import CONFIG, log, req, to_python, get_ds
 
@@ -93,7 +94,7 @@ class Base(object):
 
         try:
             response = to_python(req.request(
-                'post', self._sign_url, headers=self.get_header(), data=data).text)
+                'post', self._sign_url, headers=self.get_header(), data=json.dumps(data, ensure_ascii=False)).text)
         except Exception as e:
             raise Exception(e)
         # 0:      success
@@ -204,11 +205,11 @@ class MHYBbs(Base):
         else:
             role_data = kwargs.get('role_data', {})
             uid = role_data.get('uid', 123456789)
-            info = role_data.get('info', {})
-            rewards = role_data.get('rewards', {})
+            info = kwargs.get('info', {})
+            rewards = kwargs.get('rewards', {})
 
             data = self._get_data(uid, info, rewards)
-            data['region_name'] = role_data.get('name', 'CN')
+            data['region_name'] = role_data.get('region_name', 'CN')
             data['post_data'] = role_data.get('post_data', {})
 
             return data

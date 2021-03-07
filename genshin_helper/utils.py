@@ -24,7 +24,7 @@ class _Config:
     GIH_VERSION = '1.7.0.a2'
     WBH_VERSION = '1.0.2'
     # miHoYo BBS
-    APP_VERSION = '2.4.0'
+    APP_VERSION = '2.3.0'
     ACT_ID = 'e202009291139501'
     USER_AGENT = 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/{}'.format(
         APP_VERSION)
@@ -62,7 +62,7 @@ class HttpRequest(object):
     def request(self,
                 method: str,
                 url: str,
-                max_retry: int=2,
+                max_retry: int = 2,
                 params=None,
                 data=None,
                 json=None,
@@ -108,8 +108,8 @@ def hexdigest(text):
 
 
 def get_ds():
-    # v2.4.0-web @Azure99
-    n = 'pbcfcvnfsm5s2w4x3lsq8caor7v8nlqm'
+    # v2.3.0-web @povsister & @journey-ad
+    n = 'h8w582wxwgqvahcdkpvdhbh2w9casgfl'
     i = str(int(time.time()))
     r = ''.join(random.sample(string.ascii_lowercase + string.digits, 6))
     c = hexdigest(f'salt={n}&t={i}&r={r}')
@@ -117,14 +117,13 @@ def get_ds():
 
 
 MESSAGE_TEMPLATE = '''
-    {today:#^28}
+    {today:#^18}
     🔅[{region_name}]{uid}
     今日奖励: {award_name} × {award_cnt}
     本月累签: {total_sign_day} 天
     签到结果: {status}
-    {end:#^28}'''
+    {end:#^18}'''
 
 req = HttpRequest()
 CONFIG = _Config
 CONFIG.MESSAGE_TEMPLATE = MESSAGE_TEMPLATE
-
