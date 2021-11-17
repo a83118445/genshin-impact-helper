@@ -15,7 +15,7 @@
 ## 已支持国际版签到 HoYoLAB Community daily check-in is supported 
 
 ## 💭前言
-
+   
 > 吹水交流：[130516740](https://qm.qq.com/cgi-bin/qm/qr?k=_M9lYFxkYD7yQQR2btyG3pkZWFys_I-l&authKey=evGDzE2eFVBm46jsHpgcWrokveg70Z9GKl3H45o0oJuia620UGeO27lDPG9gKb/2&noverify=0)
 
 原神是我见过的唯一一个游戏本体和签到福利分离的游戏，玩家为了签到还要额外下载米游社 App。
